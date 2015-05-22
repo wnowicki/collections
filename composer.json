@@ -1,0 +1,12 @@
+{
+  "name": "wnowicki/collections",
+  "description": "PHP Collections",
+  "autoload": {
+    "psr-4": {
+      "WNowicki\\Collections\\": "lib"
+    }
+  },
+  "require": {
+        "php": ">=5.0.0"
+    }
+}
