@@ -30,7 +30,7 @@ class ObjectCollection extends Collection
      */
     public function __construct($type)
     {
-        if (!class_exists($type)) {
+        if (!class_exists($type) && !interface_exists($type)) {
 
             throw new InvalidClassException('Class [' . $type . '] in not valid class.');
         }

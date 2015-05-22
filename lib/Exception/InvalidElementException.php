@@ -11,11 +11,11 @@
 namespace WNowicki\Collections\Exception;
 
 /**
- * Collection Exception
+ * Invalid Element Exception
  *
  * @author WN
  * @package WNowicki\Collections\Exception
  */
-class CollectionException extends \Exception
+class InvalidElementException extends CollectionException
 {
 }

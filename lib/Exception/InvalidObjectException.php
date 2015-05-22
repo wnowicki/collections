@@ -10,6 +10,12 @@
 
 namespace WNowicki\Collections\Exception;
 
-class InvalidObjectException extends CollectionException
+/**
+ * Invalid Object Exception
+ *
+ * @author WN
+ * @package WNowicki\Collections\Exception
+ */
+class InvalidObjectException extends InvalidElementException
 {
 }
