@@ -3,7 +3,7 @@
 require_once('../vendor/autoload.php');
 require_once('classes.php');
 
-$collection = \WNowicki\Collections\ScalarCollection::make(\WNowicki\Collections\ScalarCollection::TYPE_INT);
+$collection = \WNowicki\Collections\Facade\IntCollection::make();
 
 $collection->add(44)->add(35)->add(99)->add(25);
 
@@ -40,3 +40,18 @@ try {
 
     echo "\nException: " . $e->getMessage() . "\n\n";
 }
+
+unset($collection);
+
+$collection = \WNowicki\Collections\Facade\StdClassCollection::make();
+
+$collection->add(new \stdClass());
+
+echo "\n\nTesting Facade stdClass Collection\n\n";
+
+foreach ($collection as $element) {
+
+    var_dump($element);
+}
+
+unset($collection);
