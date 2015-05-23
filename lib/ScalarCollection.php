@@ -66,11 +66,6 @@ class ScalarCollection extends Collection
      */
     public function add($element)
     {
-        if (!is_scalar($element)) {
-
-            throw new InvalidElementException('Expected element to be a scalar.');
-        }
-
         if ($this->type == self::TYPE_INT && !is_int($element)) {
 
             throw new InvalidElementException('Expected element to be type integer');
