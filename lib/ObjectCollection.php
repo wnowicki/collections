@@ -76,7 +76,7 @@ class ObjectCollection extends AbstractCollection
      */
     public function add($element)
     {
-        try{
+        try {
             return parent::add($element);
 
         } catch (\Exception $e) {

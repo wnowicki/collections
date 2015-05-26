@@ -48,7 +48,7 @@ class ScalarCollection extends AbstractCollection
      *
      * @author WN
      * @param int $type
-     * @return ObjectCollection
+     * @return ScalarCollection
      * @throws InvalidTypeException
      */
     public static function make($type)
@@ -95,16 +95,12 @@ class ScalarCollection extends AbstractCollection
             switch ($this->type) {
                 case self::TYPE_INT:
                     throw new InvalidElementException('Expected element to be type integer');
-                    break;
                 case self::TYPE_FLOAT:
                     throw new InvalidElementException('Expected element to be type float');
-                    break;
                 case self::TYPE_STRING:
                     throw new InvalidElementException('Expected element to be type string');
-                    break;
                 case self::TYPE_BOOL:
                     throw new InvalidElementException('Expected element to be type boolean');
-                    break;
                 default:
                     throw $e;
             }
@@ -115,7 +111,7 @@ class ScalarCollection extends AbstractCollection
      * Available Types
      *
      * @author WN
-     * @return array
+     * @return int[]
      */
     private function availableTypes()
     {

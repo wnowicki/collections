@@ -35,7 +35,7 @@ abstract class AbstractCollection implements CollectionInterface
      * Make Collection
      *
      * @author WN
-     * @return Collection
+     * @return CollectionInterface
      */
     public static function make()
     {
