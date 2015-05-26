@@ -11,7 +11,7 @@ by WNowicki
 - `PHP >=5.0.0`
 
 ### Composer Installation
-To install *cli* library you will need to use [Composer](http://getcomposer.org/) in your project. If you aren't using Composer yet, it's really simple!
+To install *collection* library you will need to use [Composer](http://getcomposer.org/) in your project. If you aren't using Composer yet, it's really simple!
 ```bash
 curl -sS https://getcomposer.org/installer | php
 ```
