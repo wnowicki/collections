@@ -51,7 +51,7 @@ class ScalarCollection extends AbstractCollection
      * @return ScalarCollection
      * @throws InvalidTypeException
      */
-    public static function make($type)
+    public static function make($type = null)
     {
         return new self($type);
     }
