@@ -11,7 +11,7 @@
 namespace WNowicki\Collections;
 
 use WNowicki\Collections\Exception\InvalidClassException;
-use WNowicki\Collections\Exception\InvalidObjectException;
+use WNowicki\Collections\Exception\InvalidElementException;
 
 /**
  * Object Collection
@@ -19,7 +19,7 @@ use WNowicki\Collections\Exception\InvalidObjectException;
  * @author WN
  * @package WNowicki\Collections
  */
-class ObjectCollection extends Collection
+class ObjectCollection extends AbstractCollection
 {
     private $type;
 
@@ -45,9 +45,25 @@ class ObjectCollection extends Collection
      * @param string $type
      * @return ObjectCollection
      */
-    public static function make($type)
+    public static function make($type = null)
     {
-        return new self($type);
+        return new static($type);
+    }
+
+    /**
+     * Checks if given element is valid ype for this collection
+     *
+     * @param $element
+     * @return bool
+     */
+    protected function isValid($element)
+    {
+        if (is_object($element) && is_a($element, $this->type)) {
+
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -56,15 +72,16 @@ class ObjectCollection extends Collection
      * @author WN
      * @param mixed $element
      * @return $this
-     * @throws InvalidObjectException
+     * @throws InvalidElementException
      */
     public function add($element)
     {
-        if (is_object($element) && is_a($element, $this->type)) {
-
+        try{
             return parent::add($element);
-        }
 
-        throw new InvalidObjectException('Element is not instance of ' . $this->type);
+        } catch (\Exception $e) {
+
+            throw new InvalidElementException('Element is not instance of ' . $this->type);
+        }
     }
 }

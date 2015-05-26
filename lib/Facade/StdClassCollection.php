@@ -30,17 +30,6 @@ class StdClassCollection extends ObjectCollection
     }
 
     /**
-     * Make stdClass Collection
-     *
-     * @author WN
-     * @return IntCollection
-     */
-    public static function make()
-    {
-        return new self();
-    }
-
-    /**
      * Get Current Element
      *
      * @author WN

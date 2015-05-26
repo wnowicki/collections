@@ -10,16 +10,26 @@
 
 namespace WNowicki\Collections;
 
+use WNowicki\Collections\Exception\InvalidElementException;
+
 /**
- * Collection
+ * AbstractCollection
  *
  * @author WN
  * @package WNowicki\Collections
  */
-class Collection implements \Iterator
+abstract class AbstractCollection implements CollectionInterface
 {
     private $collection = [];
     private $pointer = 0;
+
+    /**
+     * Checks if given element is valid ype for this collection
+     *
+     * @param $element
+     * @return bool
+     */
+    abstract protected function isValid($element);
 
     /**
      * Make Collection
@@ -29,7 +39,7 @@ class Collection implements \Iterator
      */
     public static function make()
     {
-        return new self();
+        return new static();
     }
 
     /**
@@ -38,11 +48,17 @@ class Collection implements \Iterator
      * @author WN
      * @param mixed $element
      * @return $this
+     * @throws InvalidElementException
      */
     public function add($element)
     {
-        $this->collection[] = $element;
-        return $this;
+        if ($this->isValid($element)) {
+
+            $this->collection[] = $element;
+            return $this;
+        }
+
+        throw new InvalidElementException('Invalid element.');
     }
 
     /**
@@ -87,7 +103,9 @@ class Collection implements \Iterator
      */
     public function valid()
     {
-        if (array_key_exists($this->pointer, $this->collection)) {
+        if (array_key_exists($this->pointer, $this->collection) &&
+            $this->isValid($this->current())
+        ) {
 
             return true;
         }

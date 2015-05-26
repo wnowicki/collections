@@ -19,7 +19,7 @@ use WNowicki\Collections\Exception\InvalidTypeException;
  * @author WN
  * @package WNowicki\Collections
  */
-class ScalarCollection extends Collection
+class ScalarCollection extends AbstractCollection
 {
     const TYPE_INT = 1;
     const TYPE_FLOAT = 2;
@@ -57,6 +57,27 @@ class ScalarCollection extends Collection
     }
 
     /**
+     * Checks if given element is valid ype for this collection
+     *
+     * @author WN
+     * @param $element
+     * @return bool
+     */
+    protected function isValid($element)
+    {
+        if (($this->type == self::TYPE_INT && is_int($element)) ||
+            ($this->type == self::TYPE_FLOAT && is_float($element)) ||
+            ($this->type == self::TYPE_STRING && is_string($element)) ||
+            ($this->type == self::TYPE_BOOL && is_bool($element))
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    /**
      * Add element to Collection
      *
      * @author WN
@@ -66,24 +87,28 @@ class ScalarCollection extends Collection
      */
     public function add($element)
     {
-        if ($this->type == self::TYPE_INT && !is_int($element)) {
+        try {
+            return parent::add($element);
 
-            throw new InvalidElementException('Expected element to be type integer');
+        } catch (InvalidElementException $e) {
 
-        } elseif ($this->type == self::TYPE_FLOAT && !is_float($element)) {
-
-            throw new InvalidElementException('Expected element to be type float');
-
-        } elseif ($this->type == self::TYPE_STRING && !is_string($element)) {
-
-            throw new InvalidElementException('Expected element to be type string');
-
-        } elseif ($this->type == self::TYPE_BOOL && !is_bool($element)) {
-
-            throw new InvalidElementException('Expected element to be type boolean');
+            switch ($this->type) {
+                case self::TYPE_INT:
+                    throw new InvalidElementException('Expected element to be type integer');
+                    break;
+                case self::TYPE_FLOAT:
+                    throw new InvalidElementException('Expected element to be type float');
+                    break;
+                case self::TYPE_STRING:
+                    throw new InvalidElementException('Expected element to be type string');
+                    break;
+                case self::TYPE_BOOL:
+                    throw new InvalidElementException('Expected element to be type boolean');
+                    break;
+                default:
+                    throw $e;
+            }
         }
-
-        return parent::add($element);
     }
 
     /**
