@@ -45,7 +45,7 @@ class ObjectCollection extends AbstractCollection
      * @param string $type
      * @return ObjectCollection
      */
-    public static function make($type = null)
+    public static function make($type)
     {
         return new static($type);
     }

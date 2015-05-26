@@ -35,9 +35,10 @@ abstract class AbstractCollection implements CollectionInterface
      * Make Collection
      *
      * @author WN
+     * @param mixed|null $type
      * @return CollectionInterface
      */
-    public static function make()
+    public static function make($type = null)
     {
         return new static();
     }
