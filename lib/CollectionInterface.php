@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace WNowicki\Collections\Exception;
+namespace WNowicki\Collections;
 
 /**
- * Invalid Element Exception
+ * Collection Interface
  *
  * @author WN
- * @package WNowicki\Collections\Exception
+ * @package WNowicki\Collections
  */
-class InvalidElementException extends CollectionException
+interface CollectionInterface extends \Iterator
 {
 }

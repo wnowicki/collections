@@ -1,12 +1,23 @@
 {
   "name": "wnowicki/collections",
   "description": "PHP Collections",
+  "homepage": "https://github.com/wnowicki/collections",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Wojciech Nowicki",
+      "email": "dev@wojciechnowicki.com",
+      "homepage": "https://github.com/wnowicki",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "wnowicki/generic": "^0.1.0"
+  },
   "autoload": {
     "psr-4": {
       "WNowicki\\Collections\\": "lib"
     }
-  },
-  "require": {
-        "php": ">=5.0.0"
-    }
+  }
 }

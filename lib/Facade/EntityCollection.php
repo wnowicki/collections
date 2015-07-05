@@ -10,15 +10,15 @@
 
 namespace WNowicki\Collections\Facade;
 
-use WNowicki\Collections\ScalarCollection;
+use WNowicki\Collections\ObjectCollection;
 
 /**
- * Bool Collection
+ * Entity Collection
  *
  * @author WN
  * @package WNowicki\Collections\Facade
  */
-class BoolCollection extends ScalarCollection
+class EntityCollection extends ObjectCollection
 {
     /**
      * @author WN
@@ -26,17 +26,18 @@ class BoolCollection extends ScalarCollection
      */
     public function __construct()
     {
-        parent::__construct(self::TYPE_BOOL);
+
+        parent::__construct('\WNowicki\Generic\EntityInterface');
     }
 
     /**
-     * Make Bool Collection
+     * Get Current Element
      *
      * @author WN
-     * @return BoolCollection
+     * @return \stdClass
      */
-    public static function make()
+    public function current()
     {
-        return new self();
+        return parent::current();
     }
 }

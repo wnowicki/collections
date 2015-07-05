@@ -4,7 +4,7 @@
  *
  * (c) WNowicki <dev@wojciechnowicki.com>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
@@ -27,17 +27,6 @@ class StdClassCollection extends ObjectCollection
     public function __construct()
     {
         parent::__construct('\stdClass');
-    }
-
-    /**
-     * Make stdClass Collection
-     *
-     * @author WN
-     * @return IntCollection
-     */
-    public static function make()
-    {
-        return new self();
     }
 
     /**
