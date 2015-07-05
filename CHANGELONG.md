@@ -1,3 +1,6 @@
+# 0.2.0
+2015-07-05
+
 ## Features
 - Added *PHPUnit* setup
 - Created simple tests
