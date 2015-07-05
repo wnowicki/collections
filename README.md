@@ -7,7 +7,7 @@ by WNowicki
 ## Install
 
 ### Requirements
-- `PHP >=5.0.0`
+- `PHP >=5.5.0`
 
 ### Composer Installation
 To install *collection* library you will need to use [Composer](http://getcomposer.org/) in your project. If you aren't using Composer yet, it's really simple!
