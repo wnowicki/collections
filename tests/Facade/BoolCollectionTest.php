@@ -25,4 +25,12 @@ class BoolCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('WNowicki\Collections\Facade\BoolCollection', BoolCollection::make());
     }
+
+    public function testWrongAdd()
+    {
+        $collection = BoolCollection::make();
+
+        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $collection->add(6);
+    }
 }

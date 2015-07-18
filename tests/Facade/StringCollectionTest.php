@@ -25,4 +25,12 @@ class StringCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('WNowicki\Collections\Facade\StringCollection', StringCollection::make());
     }
+
+    public function testWrongAdd()
+    {
+        $collection = StringCollection::make();
+
+        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $collection->add(2);
+    }
 }

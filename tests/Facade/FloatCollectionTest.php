@@ -25,4 +25,12 @@ class FloatCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('WNowicki\Collections\Facade\FloatCollection', FloatCollection::make());
     }
+
+    public function testWrongAdd()
+    {
+        $collection = FloatCollection::make();
+
+        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $collection->add('x');
+    }
 }

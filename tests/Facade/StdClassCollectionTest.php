@@ -25,4 +25,11 @@ class StdClassCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('WNowicki\Collections\Facade\StdClassCollection', StdClassCollection::make());
     }
+
+    public function testCurrent()
+    {
+        $collection = StdClassCollection::make()->add((new \stdClass()));
+
+        $this->assertInstanceOf('\stdClass', $collection->current());
+    }
 }

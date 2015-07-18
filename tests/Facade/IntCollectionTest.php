@@ -25,4 +25,12 @@ class IntCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('WNowicki\Collections\Facade\IntCollection', IntCollection::make());
     }
+
+    public function testWrongAdd()
+    {
+        $collection = IntCollection::make();
+
+        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $collection->add('x');
+    }
 }

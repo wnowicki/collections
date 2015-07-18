@@ -65,15 +65,16 @@ class ScalarCollection extends AbstractCollection
      */
     protected function isValid($element)
     {
-        if (($this->type == self::TYPE_INT && is_int($element)) ||
-            ($this->type == self::TYPE_FLOAT && is_float($element)) ||
-            ($this->type == self::TYPE_STRING && is_string($element)) ||
-            ($this->type == self::TYPE_BOOL && is_bool($element))
-        ) {
-            return true;
+        switch ($this->type) {
+            case self::TYPE_INT:
+                return is_int($element);
+            case self::TYPE_FLOAT:
+                return is_float($element);
+            case self::TYPE_STRING:
+                return is_string($element);
+            case self::TYPE_BOOL:
+                return is_bool($element);
         }
-
-        return false;
     }
 
 
@@ -101,8 +102,6 @@ class ScalarCollection extends AbstractCollection
                     throw new InvalidElementException('Expected element to be type string');
                 case self::TYPE_BOOL:
                     throw new InvalidElementException('Expected element to be type boolean');
-                default:
-                    throw $e;
             }
         }
     }

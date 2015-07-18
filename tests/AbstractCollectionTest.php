@@ -54,6 +54,16 @@ class AbstractCollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->collection->valid());
     }
 
+    public function testIsNotValid()
+    {
+        $this->collection->next();
+        $this->collection->next();
+        $this->collection->next();
+        $this->collection->next();
+
+        $this->assertFalse($this->collection->valid());
+    }
+
     public function testRewind()
     {
         $this->collection->next();
