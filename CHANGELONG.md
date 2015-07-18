@@ -1,3 +1,6 @@
+## Features
+- Applied newest development standards to package
+
 # 0.2.0
 2015-07-05
 
