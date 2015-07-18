@@ -24,7 +24,31 @@ class ScalarCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(
             '\WNowicki\Collections\ScalarCollection',
-            ScalarCollection::make(ScalarCollection::TYPE_INT)
+            ScalarCollection::make(ScalarCollection::TYPE_BOOL)
         );
+    }
+
+    public function testMakeNonexistentType()
+    {
+        $this->setExpectedException('WNowicki\Collections\Exception\InvalidTypeException');
+        ScalarCollection::make('xx');
+    }
+
+    public function testAdd()
+    {
+        $collection = ScalarCollection::make(ScalarCollection::TYPE_BOOL);
+
+        $this->assertInstanceOf(
+            '\WNowicki\Collections\ScalarCollection',
+            $collection->add(true)
+        );
+    }
+
+    public function testWrongAdd()
+    {
+        $collection = ScalarCollection::make(ScalarCollection::TYPE_BOOL);
+
+        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $collection->add(6);
     }
 }
