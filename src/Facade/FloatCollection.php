@@ -33,9 +33,10 @@ class FloatCollection extends ScalarCollection
      * Make Float Collection
      *
      * @author WN
+     * @param null $type
      * @return FloatCollection
      */
-    public static function make()
+    public static function make($type = null)
     {
         return new self();
     }

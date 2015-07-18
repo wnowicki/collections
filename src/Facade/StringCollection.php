@@ -31,11 +31,12 @@ class StringCollection extends ScalarCollection
 
     /**
      * Make String Collection
-     * 
+     *
      * @author WN
+     * @param null $type
      * @return StringCollection
      */
-    public static function make()
+    public static function make($type = null)
     {
         return new self();
     }

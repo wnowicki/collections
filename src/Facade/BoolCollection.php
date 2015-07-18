@@ -33,9 +33,10 @@ class BoolCollection extends ScalarCollection
      * Make Bool Collection
      *
      * @author WN
+     * @param null $type
      * @return BoolCollection
      */
-    public static function make()
+    public static function make($type = null)
     {
         return new self();
     }
