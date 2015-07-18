@@ -18,9 +18,21 @@
         "php": ">=5.5.0",
         "wnowicki/generic": "~0.1"
     },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
     "autoload": {
         "psr-4": {
             "WNowicki\\Collections\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WNowicki\\Collections\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
