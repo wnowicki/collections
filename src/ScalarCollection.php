@@ -35,7 +35,7 @@ class ScalarCollection extends AbstractCollection
      */
     public function __construct($type)
     {
-        if (!array_key_exists($type, $this->availableTypes())) {
+        if (!$this->isAvailableType($type)) {
 
             throw new InvalidTypeException();
         }
@@ -105,6 +105,11 @@ class ScalarCollection extends AbstractCollection
                     throw $e;
             }
         }
+    }
+
+    private function isAvailableType($type)
+    {
+        return (array_search($type, $this->availableTypes()) === false)?false:true;
     }
 
     /**
