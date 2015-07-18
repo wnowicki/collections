@@ -24,4 +24,9 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('\WNowicki\Collections\Collection', Collection::make());
     }
+
+    public function testAdd()
+    {
+        $this->assertInstanceOf('\WNowicki\Collections\Collection', Collection::make()->add(2));
+    }
 }
