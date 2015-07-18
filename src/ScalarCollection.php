@@ -93,7 +93,7 @@ class ScalarCollection extends AbstractCollection
 
         } catch (InvalidElementException $e) {
 
-            throw new InvalidElementException('Expected element to be type ' . $this->getTypeName($this->type));
+            throw new InvalidElementException('Expected element to be type of ' . $this->getTypeName($this->type));
         }
     }
 

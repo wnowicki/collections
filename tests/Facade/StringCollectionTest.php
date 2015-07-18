@@ -30,7 +30,10 @@ class StringCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $collection = StringCollection::make();
 
-        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $this->setExpectedException(
+            'WNowicki\Collections\Exception\InvalidElementException',
+            'Expected element to be type of string'
+        );
         $collection->add(2);
     }
 }

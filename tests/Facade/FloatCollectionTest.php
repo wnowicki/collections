@@ -30,7 +30,10 @@ class FloatCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $collection = FloatCollection::make();
 
-        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $this->setExpectedException(
+            'WNowicki\Collections\Exception\InvalidElementException',
+            'Expected element to be type of float'
+        );
         $collection->add('x');
     }
 }

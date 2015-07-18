@@ -30,7 +30,10 @@ class IntCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $collection = IntCollection::make();
 
-        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $this->setExpectedException(
+            'WNowicki\Collections\Exception\InvalidElementException',
+            'Expected element to be type of int'
+        );
         $collection->add('x');
     }
 }

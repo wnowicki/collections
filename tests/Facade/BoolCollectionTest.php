@@ -30,7 +30,10 @@ class BoolCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $collection = BoolCollection::make();
 
-        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $this->setExpectedException(
+            'WNowicki\Collections\Exception\InvalidElementException',
+            'Expected element to be type of bool'
+        );
         $collection->add(6);
     }
 }
