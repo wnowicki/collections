@@ -65,16 +65,16 @@ class ScalarCollection extends AbstractCollection
      */
     protected function isValid($element)
     {
-        switch ($this->type) {
-            case self::TYPE_INT:
-                return is_int($element);
-            case self::TYPE_FLOAT:
-                return is_float($element);
-            case self::TYPE_STRING:
-                return is_string($element);
-            case self::TYPE_BOOL:
-                return is_bool($element);
+        if ($this->type === self::TYPE_INT) {
+            return is_int($element);
         }
+        if ($this->type === self::TYPE_FLOAT) {
+            return is_float($element);
+        }
+        if ($this->type === self::TYPE_STRING) {
+            return is_string($element);
+        }
+        return is_bool($element);
     }
 
 
@@ -93,16 +93,16 @@ class ScalarCollection extends AbstractCollection
 
         } catch (InvalidElementException $e) {
 
-            switch ($this->type) {
-                case self::TYPE_INT:
-                    throw new InvalidElementException('Expected element to be type integer');
-                case self::TYPE_FLOAT:
-                    throw new InvalidElementException('Expected element to be type float');
-                case self::TYPE_STRING:
-                    throw new InvalidElementException('Expected element to be type string');
-                case self::TYPE_BOOL:
-                    throw new InvalidElementException('Expected element to be type boolean');
+            if ($this->type === self::TYPE_INT) {
+                throw new InvalidElementException('Expected element to be type integer');
             }
+            if ($this->type === self::TYPE_FLOAT) {
+                throw new InvalidElementException('Expected element to be type float');
+            }
+            if ($this->type === self::TYPE_STRING) {
+                throw new InvalidElementException('Expected element to be type string');
+            }
+            throw new InvalidElementException('Expected element to be type boolean');
         }
     }
 
