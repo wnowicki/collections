@@ -27,4 +27,29 @@ class ObjectScalarCollectionTest extends \PHPUnit_Framework_TestCase
             ObjectCollection::make('\stdClass')
         );
     }
+
+    public function testMakeNonexistentType()
+    {
+        $this->setExpectedException('WNowicki\Collections\Exception\InvalidClassException');
+        ObjectCollection::make('\NonStdClass');
+    }
+
+    public function testAdd()
+    {
+        $collection = ObjectCollection::make('\stdClass');
+        $element = new \stdClass();
+
+        $this->assertInstanceOf(
+            '\WNowicki\Collections\ObjectCollection',
+            $collection->add($element)
+        );
+    }
+
+    public function testWrongAdd()
+    {
+        $collection = ObjectCollection::make('\stdClass');
+
+        $this->setExpectedException('WNowicki\Collections\Exception\InvalidElementException');
+        $collection->add($this);
+    }
 }
