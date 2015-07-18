@@ -93,16 +93,7 @@ class ScalarCollection extends AbstractCollection
 
         } catch (InvalidElementException $e) {
 
-            if ($this->type === self::TYPE_INT) {
-                throw new InvalidElementException('Expected element to be type integer');
-            }
-            if ($this->type === self::TYPE_FLOAT) {
-                throw new InvalidElementException('Expected element to be type float');
-            }
-            if ($this->type === self::TYPE_STRING) {
-                throw new InvalidElementException('Expected element to be type string');
-            }
-            throw new InvalidElementException('Expected element to be type boolean');
+            throw new InvalidElementException('Expected element to be type ' . $this->getTypeName($this->type));
         }
     }
 
@@ -125,5 +116,17 @@ class ScalarCollection extends AbstractCollection
             self::TYPE_STRING,
             self::TYPE_BOOL,
         ];
+    }
+
+    private function getTypeName($type)
+    {
+        $ar =  [
+            self::TYPE_INT => 'int',
+            self::TYPE_FLOAT => 'float',
+            self::TYPE_STRING => 'string',
+            self::TYPE_BOOL => 'bool',
+        ];
+
+        return $ar[$type];
     }
 }
