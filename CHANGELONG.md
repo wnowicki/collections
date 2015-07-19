@@ -1,3 +1,6 @@
+# 0.3.0
+2015-07-19
+
 ## Features
 - Applied newest development standards to package
 - Improved testing and code quality
