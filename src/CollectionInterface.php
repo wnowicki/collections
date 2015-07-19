@@ -16,7 +16,7 @@ namespace WNowicki\Collections;
  * @author WN
  * @package WNowicki\Collections
  */
-interface CollectionInterface extends \Iterator, \Countable
+interface CollectionInterface extends \Iterator, \Countable, \ArrayAccess
 {
     /**
      * Forget (delete) element of collection
