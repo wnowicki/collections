@@ -72,4 +72,30 @@ class AbstractCollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->collection->rewind());
         $this->assertSame(0, $this->collection->key());
     }
+
+    public function testCount()
+    {
+        $collection = new Collection();
+
+        $this->assertSame(0, $collection->count());
+
+        $collection->add('www');
+
+        $this->assertSame(1, $collection->count());
+
+        $collection->add('w1');
+        $collection->add('w2');
+        $collection->add('w3');
+
+        $this->assertSame(4, $collection->count());
+    }
+
+    public function testForget()
+    {
+        $this->collection->next();
+
+        $this->collection->forget($this->collection->key());
+
+        $this->assertFalse($this->collection->valid());
+    }
 }

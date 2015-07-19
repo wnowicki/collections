@@ -63,6 +63,29 @@ abstract class AbstractCollection implements CollectionInterface
     }
 
     /**
+     * Count elements in Collection
+     *
+     * @author WN
+     * @return int
+     */
+    public function count()
+    {
+        return count($this->collection);
+    }
+
+    /**
+     * Forget (delete) element of collection
+     *
+     * @param int $key
+     * @return static
+     */
+    public function forget($key)
+    {
+        unset($this->collection[$key]);
+        return $this;
+    }
+
+    /**
      * Return the current element
      *
      * @link http://php.net/manual/en/iterator.current.php

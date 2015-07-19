@@ -16,6 +16,13 @@ namespace WNowicki\Collections;
  * @author WN
  * @package WNowicki\Collections
  */
-interface CollectionInterface extends \Iterator
+interface CollectionInterface extends \Iterator, \Countable
 {
+    /**
+     * Forget (delete) element of collection
+     *
+     * @param int $key
+     * @return static
+     */
+    public function forget($key);
 }
