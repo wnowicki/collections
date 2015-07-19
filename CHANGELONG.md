@@ -1,3 +1,10 @@
+## Features
+- Applied newest development standards to package
+- Improved testing and code quality
+
+## Bug Fixes
+- Fixed type checking bug in `ScalarCollection`
+
 # 0.2.0
 2015-07-05
 

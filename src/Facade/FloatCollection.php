@@ -13,12 +13,12 @@ namespace WNowicki\Collections\Facade;
 use WNowicki\Collections\ScalarCollection;
 
 /**
- * Bool Collection
+ * Float Collection
  *
  * @author WN
  * @package WNowicki\Collections\Facade
  */
-class BoolCollection extends ScalarCollection
+class FloatCollection extends ScalarCollection
 {
     /**
      * @author WN
@@ -26,16 +26,17 @@ class BoolCollection extends ScalarCollection
      */
     public function __construct()
     {
-        parent::__construct(self::TYPE_BOOL);
+        parent::__construct(self::TYPE_FLOAT);
     }
 
     /**
-     * Make Bool Collection
+     * Make Float Collection
      *
      * @author WN
-     * @return BoolCollection
+     * @param null $type
+     * @return FloatCollection
      */
-    public static function make()
+    public static function make($type = null)
     {
         return new self();
     }

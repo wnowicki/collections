@@ -10,7 +10,7 @@
 
 namespace WNowicki\Collections\Test;
 
-use WNowicki\Collections\ObjectCollection;
+use WNowicki\Collections\Collection;
 
 /**
  * Collection Test
@@ -18,13 +18,15 @@ use WNowicki\Collections\ObjectCollection;
  * @author WN
  * @package WNowicki\Collections\Test
  */
-class ObjectScalarCollectionTest extends \PHPUnit_Framework_TestCase
+class CollectionTest extends \PHPUnit_Framework_TestCase
 {
     public function testMake()
     {
-        $this->assertInstanceOf(
-            '\WNowicki\Collections\ObjectCollection',
-            ObjectCollection::make('\stdClass')
-        );
+        $this->assertInstanceOf('\WNowicki\Collections\Collection', Collection::make());
+    }
+
+    public function testAdd()
+    {
+        $this->assertInstanceOf('\WNowicki\Collections\Collection', Collection::make()->add(2));
     }
 }

@@ -33,9 +33,10 @@ class IntCollection extends ScalarCollection
      * Make Int Collection
      *
      * @author WN
+     * @param null $type
      * @return IntCollection
      */
-    public static function make()
+    public static function make($type = null)
     {
         return new self();
     }

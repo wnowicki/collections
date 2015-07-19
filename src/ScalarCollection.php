@@ -35,7 +35,7 @@ class ScalarCollection extends AbstractCollection
      */
     public function __construct($type)
     {
-        if (!array_key_exists($type, $this->availableTypes())) {
+        if (!$this->isAvailableType($type)) {
 
             throw new InvalidTypeException();
         }
@@ -65,15 +65,16 @@ class ScalarCollection extends AbstractCollection
      */
     protected function isValid($element)
     {
-        if (($this->type == self::TYPE_INT && is_int($element)) ||
-            ($this->type == self::TYPE_FLOAT && is_float($element)) ||
-            ($this->type == self::TYPE_STRING && is_string($element)) ||
-            ($this->type == self::TYPE_BOOL && is_bool($element))
-        ) {
-            return true;
+        if ($this->type === self::TYPE_INT) {
+            return is_int($element);
         }
-
-        return false;
+        if ($this->type === self::TYPE_FLOAT) {
+            return is_float($element);
+        }
+        if ($this->type === self::TYPE_STRING) {
+            return is_string($element);
+        }
+        return is_bool($element);
     }
 
 
@@ -92,19 +93,13 @@ class ScalarCollection extends AbstractCollection
 
         } catch (InvalidElementException $e) {
 
-            switch ($this->type) {
-                case self::TYPE_INT:
-                    throw new InvalidElementException('Expected element to be type integer');
-                case self::TYPE_FLOAT:
-                    throw new InvalidElementException('Expected element to be type float');
-                case self::TYPE_STRING:
-                    throw new InvalidElementException('Expected element to be type string');
-                case self::TYPE_BOOL:
-                    throw new InvalidElementException('Expected element to be type boolean');
-                default:
-                    throw $e;
-            }
+            throw new InvalidElementException('Expected element to be type of ' . $this->getTypeName($this->type));
         }
+    }
+
+    private function isAvailableType($type)
+    {
+        return (array_search($type, $this->availableTypes()) === false)?false:true;
     }
 
     /**
@@ -121,5 +116,17 @@ class ScalarCollection extends AbstractCollection
             self::TYPE_STRING,
             self::TYPE_BOOL,
         ];
+    }
+
+    private function getTypeName($type)
+    {
+        $ar =  [
+            self::TYPE_INT => 'int',
+            self::TYPE_FLOAT => 'float',
+            self::TYPE_STRING => 'string',
+            self::TYPE_BOOL => 'bool',
+        ];
+
+        return $ar[$type];
     }
 }
