@@ -26,10 +26,10 @@ class EntityCollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('WNowicki\Collections\Facade\EntityCollection', EntityCollection::make());
     }
 
-    public function testCurrent()
+    public function testAdd()
     {
-        $collection = EntityCollection::make()->add($this->getMock('\WNowicki\Generic\EntityInterface'));
+        $collection = EntityCollection::make()->add($this->getMock('\WNowicki\Generic\Contracts\Entity'));
 
-        $this->assertInstanceOf('\WNowicki\Generic\EntityInterface', $collection->current());
+        $this->assertInstanceOf('\WNowicki\Generic\Contracts\Entity', $collection->current());
     }
 }

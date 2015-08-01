@@ -27,17 +27,17 @@ class EntityCollection extends ObjectCollection
     public function __construct()
     {
 
-        parent::__construct('\WNowicki\Generic\EntityInterface');
+        parent::__construct('\WNowicki\Generic\Contracts\Entity');
     }
 
     /**
-     * Get Current Element
+     * Make Collection
      *
      * @author WN
-     * @return \stdClass
+     * @return \WNowicki\Generic\Contracts\Entity
      */
-    public function current()
+    public static function make()
     {
-        return parent::current();
+        return new static();
     }
 }
