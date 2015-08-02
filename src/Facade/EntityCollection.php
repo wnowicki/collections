@@ -22,22 +22,23 @@ class EntityCollection extends ObjectCollection
 {
     /**
      * @author WN
-     * @throws \WNowicki\Collections\Exception\InvalidTypeException
+     * @param null $type
+     * @throws \WNowicki\Collections\Exception\InvalidClassException
      */
-    public function __construct()
+    public function __construct($type = null)
     {
-
-        parent::__construct('\WNowicki\Generic\EntityInterface');
+        parent::__construct($type === null?'\WNowicki\Generic\Contracts\Entity':$type);
     }
 
     /**
-     * Get Current Element
+     * Make Collection
      *
      * @author WN
-     * @return \stdClass
+     * @param null $type
+     * @return \WNowicki\Generic\Contracts\Entity
      */
-    public function current()
+    public static function make($type = null)
     {
-        return parent::current();
+        return new static($type);
     }
 }

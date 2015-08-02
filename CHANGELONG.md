@@ -1,3 +1,12 @@
+# 0.4.0
+2015-08-02
+
+## Features
+- Added `count()` and `forget()`
+
+## Bug Fixes
+- `EntityCollection` fixes for new contracts in `generic` package
+
 # 0.3.0
 2015-07-19
 
